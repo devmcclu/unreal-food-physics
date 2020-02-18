@@ -1,13 +1,17 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{3A59DE4B-4AD6-17AC-0FC0-AAA9388A74E1}",
+	"EngineAssociation": "{DDB5537A-48BA-08FD-D09B-5C908E0E698A}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
 		{
 			"Name": "FoodPhysics",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Flex",
+				"Engine"
+			]
 		}
 	]
 }
