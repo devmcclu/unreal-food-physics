@@ -19,11 +19,16 @@ public:
 	// Sets default values for this actor's properties
 	ABaseFood();
 
+	UPROPERTY(EditDefaultsOnly, Category = "Spawning")
+	TSubclassOf<AFlexActor> ActorToSpawn;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-
+	
+	UFUNCTION()
+	void SpawnObject(FVector Loc, FRotator Rot);
 
 public:	
 	// Called every frame

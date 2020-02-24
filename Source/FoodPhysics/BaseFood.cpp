@@ -29,3 +29,9 @@ void ABaseFood::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Othe
 
 }
 
+void ABaseFood::SpawnObject(FVector Loc, FRotator Rot)
+{
+	FActorSpawnParameters SpawnParams;
+	AFlexActor* SpawnedActorRef = GetWorld()->SpawnActor<AFlexActor>(ActorToSpawn, Loc, Rot, SpawnParams);
+}
+
