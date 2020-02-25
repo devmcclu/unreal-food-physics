@@ -8,8 +8,8 @@ ABaseFood::ABaseFood()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	// CollisionMesh = CreateDefaultSubobject<UBoxComponent>(TEXT("Box"));
-	// CollisionMesh->SetupAttachment(RootComponent);
+	CollisionMesh = CreateDefaultSubobject<UBoxComponent>(TEXT("Box"));
+	CollisionMesh->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned
@@ -17,7 +17,7 @@ void ABaseFood::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//CollisionMesh->OnComponentBeginOverlap.AddDynamic(this, &ABaseFood::OnOverlapBegin);
+	CollisionMesh->OnComponentBeginOverlap.AddDynamic(this, &ABaseFood::OnOverlapBegin);
 }
 
 // Called every frame

@@ -3,10 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Components/BoxComponent.h" 
 #include "FlexActor.h"
 #include "GameFramework/Actor.h"
 #include "BaseFood.generated.h"
-
 /**
  * 
  */
@@ -19,7 +19,8 @@ public:
 	// Sets default values for this actor's properties
 	ABaseFood();
 
-	//UBoxComponent* CollisionMesh;
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	UBoxComponent* CollisionMesh;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Spawning")
 	TSubclassOf<AFlexActor> ActorToSpawn;
