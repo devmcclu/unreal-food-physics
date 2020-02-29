@@ -17,7 +17,7 @@ ABaseFoodActor::ABaseFoodActor()
 	FlexMesh->SetupAttachment(SceneRoot);
 
 	CollisionMesh = CreateDefaultSubobject<UBoxComponent>(TEXT("Box"));
-	CollisionMesh->SetupAttachment(SceneRoot);
+	CollisionMesh->SetupAttachment(FlexMesh);
 }
 
 // Called when the game starts or when spawned
@@ -40,7 +40,8 @@ void ABaseFoodActor::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor*
 {
 	print(TEXT("Help me"));
 	FRotator objectRotation = FRotator();
-	SpawnObject(GetActorLocation(), objectRotation);
+	//SpawnObject(GetActorLocation(), objectRotation);
+	SpawnObject(FVector(0, 0, 0), objectRotation);
 }
 
 void ABaseFoodActor::SpawnObject(FVector Loc, FRotator Rot)
