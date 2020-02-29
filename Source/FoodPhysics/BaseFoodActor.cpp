@@ -10,8 +10,14 @@ ABaseFoodActor::ABaseFoodActor()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	SceneRoot = CreateDefaultSubobject<USceneComponent>(TEXT("DefaultSceneRoot"));
+	SceneRoot->SetupAttachment(RootComponent);
+
+	FlexMesh = CreateDefaultSubobject<UFlexComponent>(TEXT("Flex"));
+	FlexMesh->SetupAttachment(SceneRoot);
+
 	CollisionMesh = CreateDefaultSubobject<UBoxComponent>(TEXT("Box"));
-	CollisionMesh->SetupAttachment(RootComponent);
+	CollisionMesh->SetupAttachment(SceneRoot);
 }
 
 // Called when the game starts or when spawned

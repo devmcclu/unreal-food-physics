@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/BoxComponent.h"
 #include "FlexComponent.h"
+#include "Components/SceneComponent.h"
 #include "GameFramework/Actor.h"
 #include "BaseFoodActor.generated.h"
 
@@ -16,6 +17,9 @@ class FOODPHYSICS_API ABaseFoodActor : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ABaseFoodActor();
+
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
+	USceneComponent* SceneRoot;
 	
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	UBoxComponent* CollisionMesh;
