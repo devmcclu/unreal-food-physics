@@ -10,6 +10,7 @@ ABaseFoodActor::ABaseFoodActor()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	// Create actor with flex mesh and collider mesh
 	SceneRoot = CreateDefaultSubobject<USceneComponent>(TEXT("DefaultSceneRoot"));
 	SceneRoot->SetupAttachment(RootComponent);
 
@@ -25,6 +26,7 @@ void ABaseFoodActor::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// Add external collider overlap
     CollisionMesh->OnComponentBeginOverlap.AddDynamic(this, &ABaseFoodActor::OnOverlapBegin);
 	
 }
@@ -41,7 +43,7 @@ void ABaseFoodActor::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor*
 	print(TEXT("Help me"));
 	FRotator objectRotation = FRotator();
 	//SpawnObject(GetActorLocation(), objectRotation);
-	SpawnObject(FVector(0, 0, 0), objectRotation);
+	SpawnObject(FVector(0, 0, 300), objectRotation);
 }
 
 void ABaseFoodActor::SpawnObject(FVector Loc, FRotator Rot)
